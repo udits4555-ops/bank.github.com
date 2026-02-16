@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chase Bank - Welcome</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- FRONT PAGE -->
+    <div id="frontPage">
+        <!-- Full Chase Header -->
+        <div class="chase-header">
+            <!-- Top Utility Bar -->
+            <div class="utility-bar">
+                <a><i class="fas fa-phone-alt"></i> 1-800-935-9935</a>
+                <a><i class="fas fa-map-marker-alt"></i> Find a branch</a>
+                <a><i class="fas fa-question-circle"></i> Help</a>
+                <a><i class="fas fa-globe"></i> EN</a>
+                <a><i class="fas fa-universal-access"></i> Accessibility</a>
+            </div>
+            
+            <!-- Main Navigation -->
+            <div class="main-nav">
+                <div class="nav-left">
+                    <div class="chase-logo">
+                        <i class="fas fa-university"></i>
+                        <span>NOVA TRUST</span>
+                    </div>
+                    <div class="nav-links">
+                        <a>Checking</a>
+                        <a>Savings</a>
+                        <a>Credit Cards</a>
+                        <a>Mortgages</a>
+                        <a>Auto</a>
+                        <a>Investing</a>
+                        <a>Business</a>
+                        <a class="special-offer">Offers</a>
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <i class="fas fa-search search-icon"></i>
+                    <i class="fas fa-map-marker-alt location-icon"></i>
+                    <button class="open-account-link" onclick="showOpenAccount()">
+                        <i class="fas fa-user-plus"></i> Open an account
+                    </button>
+                    <button class="sign-in-btn" onclick="showLoginModal()">
+                        <i class="fas fa-lock"></i> Sign in
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Section with Slider Background -->
+        <div class="hero-section">
+            <!-- Slider Background -->
+            <div class="slider-background">
+                <div class="slider-container">
+                    <!-- Slide 1 - Add your image here -->
+                    <div class="slide active" id="slide1">
+                        <img src="images/slide1.jpg" alt="Banking Background 1">
+                    </div>
+                    <!-- Slide 2 - Add your image here -->
+                    <div class="slide" id="slide2">
+                        <img src="images/slide2.jpg" alt="Banking Background 2">
+                    </div>
+                    <!-- Slide 3 - Add your image here -->
+                    <div class="slide" id="slide3">
+                        <img src="images/slide3.jpg" alt="Banking Background 3">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Overlay for text readability -->
+            <div class="hero-overlay"></div>
+
+            <!-- Content Container -->
+            <div class="hero-container">
+                <!-- Left side - $400 Offer -->
+                <div class="hero-offer">
+                    <div class="offer-badge">Limited Time</div>
+                    <div class="offer-amount"><strong>$400</strong></div>
+                    <div class="offer-title">New Chase checking customers</div>
+                    <div class="offer-description">Open a Chase Total Checking® account with qualifying activities.</div>
+                    <div class="offer-features">
+                        <span><i class="fas fa-check-circle"></i> No monthly service fees</span>
+                        <span><i class="fas fa-check-circle"></i> 24/7 fraud monitoring</span>
+                        <span><i class="fas fa-check-circle"></i> Mobile check deposit</span>
+                    </div>
+                    <button class="offer-btn" onclick="showOpenAccount()">Open an account</button>
+                    <div class="offer-disclaimer">Terms and conditions apply. See offer for details.</div>
+                </div>
+
+                <!-- Right side - Login Form - FIXED BUTTON -->
+                <div class="login-section">
+                    <div class="login-title"><strong>Welcome</strong></div>
+                    
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" id="loginUsername" placeholder="Enter your username" value="">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Password</label>
+                        <div class="password-field">
+                            <input type="password" id="loginPassword" placeholder="Enter your password" value="">
+                            <button type="button" class="password-toggle" onclick="togglePassword()" id="passwordToggleBtn">
+                                <i class="far fa-eye" id="passwordToggleIcon"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="remember-row">
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember">
+                            <label for="remember">Remember me</label>
+                        </div>
+                        <a class="biometric-login"><i class="fas fa-fingerprint"></i> Touch ID</a>
+                    </div>
+                    
+                    <!-- FIXED: Added type="button" and (event) parameter -->
+                    <button class="signin-btn" type="button" onclick="handleLogin(event)">Sign in</button>
+                    
+                    <div class="login-links">
+                        <a class="forgot-link">Forgot username/password?</a>
+                        <a class="help-link"><i class="fas fa-question-circle"></i> Help signing in</a>
+                    </div>
+                    
+                    <div class="not-enrolled">
+                        <span>Not enrolled?</span>
+                        <a onclick="showOpenAccount()">Sign up now.</a>
+                    </div>
+                    
+                    <div class="security-badge">
+                        <i class="fas fa-shield-alt"></i> Secure login with 256-bit encryption
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slider navigation dots -->
+            <div class="slider-dots">
+                <div class="dot active" onclick="changeSlide(0)"></div>
+                <div class="dot" onclick="changeSlide(1)"></div>
+                <div class="dot" onclick="changeSlide(2)"></div>
+            </div>
+        </div>
+
+        <!-- Quick Links Banner -->
+        <div class="quick-links">
+            <div class="links-container">
+                <div class="quick-link-item"><i class="fas fa-wallet"></i><span>Checking</span><small>Open account</small></div>
+                <div class="quick-link-item"><i class="fas fa-piggy-bank"></i><span>Savings</span><small>Rates as low as 0.01%</small></div>
+                <div class="quick-link-item"><i class="fab fa-cc-visa"></i><span>Credit Cards</span><small>View offers</small></div>
+                <div class="quick-link-item"><i class="fas fa-home"></i><span>Mortgages</span><small>Rates from 5.5%</small></div>
+                <div class="quick-link-item"><i class="fas fa-car"></i><span>Auto</span><small>Refinance now</small></div>
+                <div class="quick-link-item"><i class="fas fa-chart-line"></i><span>Investing</span><small>Start today</small></div>
+                <div class="quick-link-item"><i class="fas fa-hand-holding-usd"></i><span>Loans</span><small>Personal & Business</small></div>
+            </div>
+        </div>
+
+        <!-- Rate Banner -->
+        <div class="rate-banner">
+            <div class="rate-container">
+                <div class="rate-item">
+                    <span class="rate-label">Mortgage Rates</span>
+                    <span class="rate-value">5.25%</span>
+                    <span class="rate-term">30-yr fixed</span>
+                </div>
+                <div class="rate-item">
+                    <span class="rate-label">Savings APY</span>
+                    <span class="rate-value">4.50%</span>
+                    <span class="rate-term">High-yield savings</span>
+                </div>
+                <div class="rate-item">
+                    <span class="rate-label">CD Rates</span>
+                    <span class="rate-value">5.00%</span>
+                    <span class="rate-term">12-month</span>
+                </div>
+                <div class="rate-item">
+                    <span class="rate-label">Auto Loan</span>
+                    <span class="rate-value">4.99%</span>
+                    <span class="rate-term">60 months</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products Section -->
+        <div class="products-section">
+            <div class="section-header">
+                <h2>Banking products designed for you</h2>
+                <p>From everyday banking to investing, we have solutions for every financial goal.</p>
+                <div class="section-controls">
+                    <button class="scroll-btn prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="scroll-btn next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-icon"><i class="fas fa-wallet"></i></div>
+                    <h3>Checking Accounts</h3>
+                    <p>Find the right checking account for your needs with options including no monthly fees.</p>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> No minimum balance</li>
+                        <li><i class="fas fa-check"></i> Free debit card</li>
+                        <li><i class="fas fa-check"></i> Mobile banking</li>
+                    </ul>
+                    <div class="product-footer">
+                        <span class="product-rate">0.01% APY</span>
+                        <a class="product-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon"><i class="fas fa-piggy-bank"></i></div>
+                    <h3>Savings Accounts</h3>
+                    <p>Save for your goals with competitive interest rates and easy access to your money.</p>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> 4.50% APY</li>
+                        <li><i class="fas fa-check"></i> No monthly fees</li>
+                        <li><i class="fas fa-check"></i> Automatic savings</li>
+                    </ul>
+                    <div class="product-footer">
+                        <span class="product-rate">4.50% APY</span>
+                        <a class="product-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon"><i class="fab fa-cc-visa"></i></div>
+                    <h3>Credit Cards</h3>
+                    <p>Choose from rewards, cash back, travel, or low intro APR credit cards.</p>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> 5% cash back</li>
+                        <li><i class="fas fa-check"></i> $200 bonus</li>
+                        <li><i class="fas fa-check"></i> No annual fee</li>
+                    </ul>
+                    <div class="product-footer">
+                        <span class="product-rate">0% Intro APR</span>
+                        <a class="product-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon"><i class="fas fa-home"></i></div>
+                    <h3>Mortgages</h3>
+                    <p>Competitive rates and flexible terms. First-time homebuyer programs available.</p>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> Rates from 5.25%</li>
+                        <li><i class="fas fa-check"></i> FHA & VA loans</li>
+                        <li><i class="fas fa-check"></i> First-time buyer</li>
+                    </ul>
+                    <div class="product-footer">
+                        <span class="product-rate">5.25% APR</span>
+                        <a class="product-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Offers Section -->
+        <div class="offers-section">
+            <div class="section-header">
+                <h2>Special offers just for you</h2>
+                <p>Limited time offers on accounts, credit cards, and more.</p>
+            </div>
+            <div class="offers-grid">
+                <div class="offer-card">
+                    <div class="offer-image"><i class="fas fa-gift"></i></div>
+                    <div class="offer-content">
+                        <span class="offer-tag">New Customer</span>
+                        <h4>$400 Checking Bonus</h4>
+                        <p>Open a new Chase Total Checking account and get $400 with qualifying activities.</p>
+                        <div class="offer-meta">
+                            <span>Expires 03/31/2026</span>
+                            <a>View offer <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-image"><i class="fas fa-credit-card"></i></div>
+                    <div class="offer-content">
+                        <span class="offer-tag">Featured</span>
+                        <h4>Freedom Unlimited®</h4>
+                        <p>Earn 5% cash back on travel, 3% on dining, and 1.5% on everything else.</p>
+                        <div class="offer-meta">
+                            <span>$200 bonus</span>
+                            <a>View offer <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-image"><i class="fas fa-percent"></i></div>
+                    <div class="offer-content">
+                        <span class="offer-tag">Limited Time</span>
+                        <h4>Mortgage Special</h4>
+                        <p>Low fixed rates for first-time homebuyers. No private mortgage insurance.</p>
+                        <div class="offer-meta">
+                            <span>5.25% APR</span>
+                            <a>View offer <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-image"><i class="fas fa-car"></i></div>
+                    <div class="offer-content">
+                        <span class="offer-tag">Refinance</span>
+                        <h4>Auto Loan Refinance</h4>
+                        <p>Refinance your auto loan and save with rates as low as 4.99% APR.</p>
+                        <div class="offer-meta">
+                            <span>No fees</span>
+                            <a>View offer <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tools & Resources -->
+        <div class="tools-section">
+            <div class="tools-container">
+                <h2>Tools & resources</h2>
+                <div class="tools-grid">
+                    <div class="tool-item">
+                        <i class="fas fa-calculator"></i>
+                        <h4>Mortgage calculator</h4>
+                        <p>Estimate your monthly payments</p>
+                    </div>
+                    <div class="tool-item">
+                        <i class="fas fa-chart-pie"></i>
+                        <h4>Budget planner</h4>
+                        <p>Create a personalized budget</p>
+                    </div>
+                    <div class="tool-item">
+                        <i class="fas fa-credit-card"></i>
+                        <h4>Credit score</h4>
+                        <p>Check your free credit score</p>
+                    </div>
+                    <div class="tool-item">
+                        <i class="fas fa-university"></i>
+                        <h4>Find a branch</h4>
+                        <p>Locate branches & ATMs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="chase-footer">
+            <div class="footer-container">
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Personal</h4>
+                        <a>Checking</a><a>Savings</a><a>Credit Cards</a><a>Mortgages</a><a>Auto</a><a>Investing</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Business</h4>
+                        <a>Business Checking</a><a>Business Credit Cards</a><a>Business Lending</a><a>Merchant Services</a><a>Business Insights</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Support</h4>
+                        <a>Customer Service</a><a>Find a Branch</a><a>Contact Us</a><a>Help Center</a><a>Security Center</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Resources</h4>
+                        <a>Rates</a><a>Calculators</a><a>Financial Education</a><a>Accessibility</a><a>Privacy</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>About Chase</h4>
+                        <a>Careers</a><a>Investor Relations</a><a>Newsroom</a><a>Community Impact</a>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <div class="social-icons">
+                        <i class="fab fa-facebook"></i><i class="fab fa-twitter"></i><i class="fab fa-linkedin"></i><i class="fab fa-instagram"></i><i class="fab fa-youtube"></i>
+                    </div>
+                    <div class="app-badges">
+                        <span><i class="fab fa-apple"></i> App Store</span>
+                        <span><i class="fab fa-google-play"></i> Google Play</span>
+                    </div>
+                </div>
+                
+                <div class="copyright">
+                    <p>© 2026 JPMorgan Chase & Co. All rights reserved. Deposit accounts offered by JPMorgan Chase Bank, N.A. Member FDIC.</p>
+                    <p>Equal Housing Lender <i class="fas fa-house-circle-check"></i></p>
+                    <p class="demo-note">This is a college project demo for educational purposes only.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGIN MODAL - FIXED BUTTON -->
+    <div id="loginModal" class="modal-overlay hidden">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2><i class="fas fa-lock"></i> Sign in to Chase</h2>
+                <button class="modal-close" onclick="hideLoginModal()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="modalUsername" placeholder="Enter your username" value="">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <div class="password-field">
+                        <input type="password" id="modalPassword" placeholder="Enter your password" value="">
+                        <button type="button" class="password-toggle" onclick="toggleModalPassword()" id="modalPasswordToggleBtn">
+                            <i class="far fa-eye" id="modalPasswordToggleIcon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-options">
+                    <label><input type="checkbox"> Remember me</label>
+                    <a>Forgot password?</a>
+                </div>
+                
+                <!-- FIXED: Added type="button" and (event) parameter -->
+                <button class="modal-btn" type="button" onclick="handleModalLogin(event)">Sign in</button>
+                
+                <div class="modal-footer">
+                    <span>Not enrolled?</span>
+                    <a onclick="showOpenAccount(); hideLoginModal();">Sign up now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OPEN ACCOUNT MODAL - FIXED BUTTON -->
+    <div id="openAccountModal" class="modal-overlay hidden">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2><i class="fas fa-user-plus"></i> Open an account</h2>
+                <button class="modal-close" onclick="hideOpenAccount()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="progress-steps">
+                    <span class="active">1. Personal Info</span>
+                    <span>2. Account Type</span>
+                    <span>3. Review</span>
+                </div>
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="fullName" placeholder="Enter your full name" value="">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" value="">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" id="phone" placeholder="(123) 456-7890" value="">
+                </div>
+                <div class="form-group">
+                    <label>Choose Username</label>
+                    <input type="text" id="newUsername" placeholder="Choose a username" value="">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <div class="password-field">
+                        <input type="password" id="newPassword" placeholder="Create a password" value="">
+                        <button type="button" class="password-toggle" onclick="toggleNewPassword()" id="newPasswordToggleBtn">
+                            <i class="far fa-eye" id="newPasswordToggleIcon"></i>
+                        </button>
+                    </div>
+                    <small>Password must be at least 8 characters</small>
+                </div>
+                <div class="form-group">
+                    <label>Account Type</label>
+                    <select id="accountType">
+                        <option>Chase Total Checking®</option>
+                        <option>Chase Savings℠</option>
+                        <option>Chase Freedom Unlimited®</option>
+                        <option>Chase Sapphire Checking™</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Initial Deposit</label>
+                    <select id="initialDeposit">
+                        <option>$0 (No minimum)</option>
+                        <option>$25</option>
+                        <option>$100</option>
+                        <option>$500</option>
+                    </select>
+                </div>
+                <div class="checkbox-group">
+                    <label><input type="checkbox"> I agree to the <a>Terms and Conditions</a></label>
+                    <label><input type="checkbox"> I want to receive offers and updates</label>
+                </div>
+                
+                <!-- FIXED: Added type="button" and (event) parameter -->
+                <button class="modal-btn" type="button" onclick="createAccount(event)">Create Account</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
